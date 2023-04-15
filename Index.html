@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crete+Round&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Cadastro</h1>
+    <form class="cadastro" method="get" action=".">
+      <label>Nome:</label>
+      <input type="text" id="name" name="name" required><br>
+      <label>Sobrenome:</label>
+      <input type="text" id="surname" name="surname" required><br>
+      <label>CPF ou CNPJ:</label>
+      <input type="text" id="cpfCnpj" name="cpfCnpj" required maxlength="14"><br>
+      <label>Email:</label>
+      <input type="email" id="email" name="email" required><br>
+      <label>Telefone:</label>
+      <input type="tel" id="telephone" name="telephone" placeholder="(XX) XXXX-XXXX" required><br>
+      <label>Cep:</label>
+      <input name="cep" type="text" id="cep" value="" size="10" maxlength="9" required onblur="pesquisacep(this.value);" /><br>
+      <label>Rua:</label>
+      <input name="rua" type="text" id="rua" size="60" /><br>
+      <label>Nº:</label>
+      <input name="number" type="text" id="number" maxlength="6" /><br>
+      <label>Bairro:</label>
+      <input name="bairro" type="text" id="bairro" size="40" /><br>
+      <label>Cidade:</label>
+      <input name="cidade" type="text" id="cidade" size="40" /><br>
+      <label>Estado:</label>
+      <input name="uf" type="text" id="uf" size="2" /><br>
+
+      <button type="submit"  onclick="gerarJSON()" > Cadastrar</button>
+    </form>
+    <div id="mensagem"></div>
+  </body>
+</html>

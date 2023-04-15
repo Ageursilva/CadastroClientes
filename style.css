@@ -1,0 +1,55 @@
+body {
+    font-family: 'Crete Round', serif;
+    background-color: #222;
+  }
+  
+  /* Estilos para o título */
+  h1 {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 36px;
+    color: #fff;
+  }
+  
+  /* Estilos para o formulário de cadastro de clientes */
+  form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"] {
+    width: 95%;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    background-color: #444;
+    color: #fff;
+  }
+  
+  button[type="submit"] {
+    font-family: 'Crete Round', serif;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #3e8e41;
+  }

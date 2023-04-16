@@ -1,4 +1,3 @@
-
 function limpa_formulário_cep() {
         //Limpa valores do formulário de cep.
         document.getElementById('rua').value=("");
@@ -18,7 +17,12 @@ function meu_callback(conteudo) {
     else {
         //CEP não Encontrado.
         limpa_formulário_cep();
-        alert("CEP não encontrado.");
+        //alert("CEP não encontrado.");
+        document.getElementById('cepInex').innerHTML ="CEP não encontrado";
+        setTimeout(function(){
+          document.getElementById('cepInex').innerHTML ='';
+        },2000)
+
     }
 }
     
@@ -55,7 +59,12 @@ function pesquisacep(valor) {
         else {
             //cep é inválido.
             limpa_formulário_cep();
-            alert("Formato de CEP inválido.");
+            //alert("Formato de CEP inválido.");
+            document.getElementById('cepInvalido').innerHTML ="Formato do CEP invalido";
+            setTimeout(function(){
+              document.getElementById('cepInvalido').innerHTML ='';
+            },2000)
+            
         }
     } //end if.
     else {
@@ -63,109 +72,164 @@ function pesquisacep(valor) {
         limpa_formulário_cep();
     }
 };
+var cpfCnpjValue = document.getElementById("cpfCnpj").value;
+var isCpfCnpjValid = validaCpfCnpj(cpfCnpjValue);
 
-function validarCpfCnpj(valor) {
-    // Remove caracteres especiais
-    valor = valor.replace(/[^\d]+/g, '');
-  
-    if (valor.length === 11) {
-      // CPF
-      let soma = 0;
-      for (let i = 0; i < 9; i++) {
-        soma += parseInt(valor.charAt(i)) * (10 - i);
+function validaCpfCnpj(val) {
+
+  if (val.length == 11) {
+      var cpf = val.trim();
+   
+      cpf = cpf.replace(/\./g, '');
+      cpf = cpf.replace('-', '');
+      cpf = cpf.split('');
+      
+      var v1 = 0;
+      var v2 = 0;
+      var aux = false;
+      
+      for (var i = 1; cpf.length > i; i++) {
+          if (cpf[i - 1] != cpf[i]) {
+              aux = true;   
+          }
+      } 
+      
+      if (aux == false) {
+          return false; 
+      } 
+      
+      for (var i = 0, p = 10; (cpf.length - 2) > i; i++, p--) {
+          v1 += cpf[i] * p; 
+      } 
+      
+      v1 = ((v1 * 10) % 11);
+      
+      if (v1 == 10) {
+          v1 = 0; 
       }
-      let resto = soma % 11;
-      if (resto === 0 || resto === 1) {
-        if (parseInt(valor.charAt(9)) !== 0) {
-          return false;
-        }
-      } else {
-        if (parseInt(valor.charAt(9)) !== 11 - resto) {
-          return false;
-        }
+      
+      if (v1 != cpf[9]) {
+          return false; 
+      } 
+      
+      for (var i = 0, p = 11; (cpf.length - 1) > i; i++, p--) {
+          v2 += cpf[i] * p; 
+      } 
+      
+      v2 = ((v2 * 10) % 11);
+      
+      if (v2 == 10) {
+          v2 = 0; 
       }
-      soma = 0;
-      for (let i = 0; i < 10; i++) {
-        soma += parseInt(valor.charAt(i)) * (11 - i);
+      
+      if (v2 != cpf[10]) {
+          return false; 
+      } else {   
+          return true; 
       }
-      resto = soma % 11;
-      if (resto === 0 || resto === 1) {
-        if (parseInt(valor.charAt(10)) !== 0) {
-          return false;
-        }
-      } else {
-        if (parseInt(valor.charAt(10)) !== 11 - resto) {
-          return false;
-        }
+  } else if (val.length == 14) {
+      var cnpj = val.trim();
+      
+      cnpj = cnpj.replace(/\./g, '');
+      cnpj = cnpj.replace('-', '');
+      cnpj = cnpj.replace('/', ''); 
+      cnpj = cnpj.split(''); 
+      
+      var v1 = 0;
+      var v2 = 0;
+      var aux = false;
+      
+      for (var i = 1; cnpj.length > i; i++) { 
+          if (cnpj[i - 1] != cnpj[i]) {  
+              aux = true;   
+          } 
+      } 
+      
+      if (aux == false) {  
+          return false; 
       }
-      return true;
-    } else if (valor.length === 14) {
-      // CNPJ
-      let soma = 0;
-      let peso = 2;
-      for (let i = 11; i >= 0; i--) {
-        soma += parseInt(valor.charAt(i)) * peso;
-        peso = peso === 9 ? 2 : peso + 1;
+      
+      for (var i = 0, p1 = 5, p2 = 13; (cnpj.length - 2) > i; i++, p1--, p2--) {
+          if (p1 >= 2) {  
+              v1 += cnpj[i] * p1;  
+          } else {  
+              v1 += cnpj[i] * p2;  
+          } 
+      } 
+      
+      v1 = (v1 % 11);
+      
+      if (v1 < 2) { 
+          v1 = 0; 
+      } else { 
+          v1 = (11 - v1); 
+      } 
+      
+      if (v1 != cnpj[12]) {  
+          return false; 
+      } 
+      
+      for (var i = 0, p1 = 6, p2 = 14; (cnpj.length - 1) > i; i++, p1--, p2--) { 
+          if (p1 >= 2) {  
+              v2 += cnpj[i] * p1;  
+          } else {   
+              v2 += cnpj[i] * p2; 
+          } 
       }
-      let resto = soma % 11;
-      if (resto === 0 || resto === 1) {
-        if (parseInt(valor.charAt(12)) !== 0) {
-          return false;
-        }
-      } else {
-        if (parseInt(valor.charAt(12)) !== 11 - resto) {
-          return false;
-        }
+      
+      v2 = (v2 % 11); 
+      
+      if (v2 < 2) {  
+          v2 = 0;
+      } else { 
+          v2 = (11 - v2); 
+      } 
+      
+      if (v2 != cnpj[13]) {   
+          return false; 
+      } else {  
+          return true; 
       }
-      soma = 0;
-      peso = 2;
-      for (let i = 12; i >= 0; i--) {
-        soma += parseInt(valor.charAt(i)) * peso;
-        peso = peso === 9 ? 2 : peso + 1;
-      }
-      resto = soma % 11;
-      if (resto === 0 || resto === 1) {
-        if (parseInt(valor.charAt(13)) !== 0) {
-          return false;
-        }
-      } else {
-        if (parseInt(valor.charAt(13)) !== 11 - resto) {
-          return false;
-        }
-      }
-      return true;
-    } else {
+  } else {
       return false;
-    }
   }
+}
+  
+
 
 function gerarJSON(event) {
-    event.preventDefault()
-    const form = document.querySelector('.cadastro');
-    const cpfCnpjInput = form.cpfCnpj;
-    const cpfCnpjValue = cpfCnpjInput.value;
-    if (!validarCpfCnpj(cpfCnpjValue)) {
-      alert('CPF ou CNPJ inválido');
-      return;
-    }
-    const json = {
-      nome: form.name.value,
-      sobrenome: form.surname.value,
-      cpfCnpj: form.cpfCnpj.value,
-      email: form.email.value,
-      telefone: form.telephone.value,
-      cep: form.cep.value,
-      rua: form.rua.value,
-      numero: form.number.value,
-      bairro: form.bairro.value,
-      cidade: form.cidade.value,
-      uf: form.uf.value
-    };
-  
-    localStorage.setItem('cadastro', JSON.stringify(json));
-    console.log(localStorage);
-  
-    form.reset();
-  
-    alert('Cadastro com sucesso!');
+  event.preventDefault();
+  const form = document.querySelector('.cadastro');
+  const cpfCnpjInput = form['cpfCnpj'];
+  const cpfCnpjValue = cpfCnpjInput.value;
+  if (!validaCpfCnpj(cpfCnpjValue)) {
+    document.getElementById('cpfCnpjInva').innerHTML = "CPF ou CNPJ inválido";
+    setTimeout(function() {
+      document.getElementById('cpfCnpjInva').innerHTML = '';
+    }, 2000);
+    return;
   }
+
+  const json = {
+    nome: form.name.value,
+    sobrenome: form.surname.value,
+    cpfCnpj: cpfCnpjValue,
+    email: form.email.value,
+    telefone: form.telephone.value,
+    cep: form.cep.value,
+    rua: form.rua.value,
+    numero: form.number.value,
+    bairro: form.bairro.value,
+    cidade: form.cidade.value,
+    uf: form.uf.value
+  };
+
+  localStorage.setItem('cadastro', JSON.stringify(json));
+  console.log(localStorage);
+
+  form.reset();
+  document.getElementById('CadastroRealizado').innerHTML = "Cadastro realizado com sucesso!";
+  setTimeout(function() {
+    document.getElementById('CadastroRealizado').innerHTML = '';
+  }, 2000);
+}

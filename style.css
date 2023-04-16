@@ -4,6 +4,12 @@ body {
   }
   
   /* Estilos para o título */
+#CadastroRealizado {
+    font-family: 'Crete Round', serif;
+    color: #3e8e41;
+    text-align: center;
+
+  }
   h1 {
     text-align: center;
     margin-top: 10px;
@@ -13,7 +19,7 @@ body {
   
   /* Estilos para o formulário de cadastro de clientes */
   form {
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto;
     padding: 20px;
     background-color: #333;
@@ -35,7 +41,7 @@ body {
     padding: 10px;
     border: none;
     border-radius: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     background-color: #444;
     color: #fff;
   }
@@ -44,7 +50,7 @@ body {
     font-family: 'Crete Round', serif;
     background-color: #4CAF50;
     color: #fff;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
@@ -52,4 +58,9 @@ body {
   
   button[type="submit"]:hover {
     background-color: #3e8e41;
+  }
+  div {
+    font-family: 'Crete Round', serif;
+    color: #ec0000;
+
   }

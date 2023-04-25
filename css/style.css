@@ -1,0 +1,74 @@
+body {
+    font-family: 'Crete Round', serif;
+    background-color: #222;
+  }
+  
+  /* Estilos para o título */
+
+  img {
+    height: 50px; 
+    float: center;
+    margin-right: 10px;
+    margin-bottom: -10px;
+  }
+#CadastroRealizado {
+    font-family: 'Crete Round', serif;
+    color: #3e8e41;SS
+    text-align: center;
+
+  }
+  h1 {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 36px;
+    color: #fff;
+    line-height: 50px;
+  }
+  
+  /* Estilos para o formulário de cadastro de clientes */
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"] {
+    width: 95%;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    background-color: #444;
+    color: #fff;
+  }
+  
+  button[type="submit"] {
+    font-family: 'Crete Round', serif;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+  div {
+    font-family: 'Crete Round', serif;
+    color: #ec0000;
+
+  }

@@ -194,14 +194,27 @@ function validaCpfCnpj(val) {
       return false;
   }
 }
-  
 
+
+function varB(event){ 
+  var cpfCnpjValue = event.target.value;
+  
+  if (!validaCpfCnpj(cpfCnpjValue)) {
+    document.getElementById('cpfCnpjInva').innerHTML = "CPF ou CNPJ inválido";
+    setTimeout(function() {
+      document.getElementById('cpfCnpjInva').innerHTML = '';
+    }, 2000);
+    return;
+  }
+}
 
 function gerarJSON(event) {
   event.preventDefault();
+
   const form = document.querySelector('.cadastro');
   const cpfCnpjInput = form['cpfCnpj'];
   const cpfCnpjValue = cpfCnpjInput.value;
+  //Posso separar em uma função para mostrar o erro
   if (!validaCpfCnpj(cpfCnpjValue)) {
     document.getElementById('cpfCnpjInva').innerHTML = "CPF ou CNPJ inválido";
     setTimeout(function() {
@@ -228,6 +241,7 @@ function gerarJSON(event) {
   console.log(localStorage);
 
   form.reset();
+  // Criar uma função separada para a mensagem de sucesso
   document.getElementById('CadastroRealizado').innerHTML = "Cadastro realizado com sucesso!";
   setTimeout(function() {
     document.getElementById('CadastroRealizado').innerHTML = '';

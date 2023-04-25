@@ -4,9 +4,16 @@ body {
   }
   
   /* Estilos para o título */
+
+  img {
+    height: 50px; 
+    float: center;
+    margin-right: 10px;
+    margin-bottom: -10px;
+  }
 #CadastroRealizado {
     font-family: 'Crete Round', serif;
-    color: #3e8e41;
+    color: #3e8e41;SS
     text-align: center;
 
   }
@@ -15,6 +22,7 @@ body {
     margin-top: 10px;
     font-size: 36px;
     color: #fff;
+    line-height: 50px;
   }
   
   /* Estilos para o formulário de cadastro de clientes */

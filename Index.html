@@ -8,9 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crete+Round&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" />
   </head>
   <body>
-    <h1>Cadastro</h1>
+    <h1><img src="ca.png" alt="Icone de cadastro">Cadastro</h1>
     <div id="CadastroRealizado"></div>
     <form class="cadastro" method="get" action="." onsubmit="gerarJSON(event)">
       <label>Nome:</label>
@@ -18,7 +19,7 @@
       <label>Sobrenome:</label>
       <input type="text" id="surname" name="surname" required><br>
       <label>CPF ou CNPJ:</label>
-      <input type="text" id="cpfCnpj" name="cpfCnpj" required maxlength="18""><br>
+      <input type="text" id="cpfCnpj" name="cpfCnpj" required maxlength="18"onkeyup="varB(event) ><br>
       <div id="cpfCnpjInva"></div>
       <div id="cpfCnpjInva"></div>
       <label>Email:</label>

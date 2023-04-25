@@ -7,6 +7,8 @@ O arquivo script.js contém a lógica do projeto e é incluído na página HTML 
 
 O projeto também faz uso da fonte Crete Round do Google Fonts, que é carregada através da tag <link> no cabeçalho da página.
 
+Este projeto faz parte do programa "Devs do Futuro" da @Totvs!
+
 ## Como usar
 Para usar o projeto, basta abrir o arquivo index.html em um navegador web. O formulário de cadastro será exibido na página e o usuário poderá preencher os campos obrigatórios e enviar o formulário. Se algum campo obrigatório não for preenchido, uma mensagem de erro será exibida na página.
 

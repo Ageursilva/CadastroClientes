@@ -72,3 +72,32 @@ body {
     color: #ec0000;
 
   }
+  iframe{
+    margin: auto;
+  }
+  #iframeContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: AUTO;
+    border: none;
+    overflow: hidden;
+    
+  }
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-family: 'Crete Round', serif;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  

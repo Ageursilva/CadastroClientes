@@ -3,27 +3,32 @@
   <head>
     <meta charset="UTF-8">
     <title>Cadastro</title>
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crete+Round&display=swap" rel="stylesheet">
+    <link rel="favicon" href="img/favicon.ico" />
   </head>
   <body>
-    <h1>Cadastro</h1>
-    <form class="cadastro" method="get" action=".">
-      <label>Nome:</label>
+    <h1><img src="/img/ca.png" alt="Icone de cadastro">Cadastro</h1>
+    <div id="CadastroRealizado"></div>
+    <form class="cadastro" method="get" action="#" onsubmit="gerarJSON(event)" id="Form">
+      <label>Nome *:</label>
       <input type="text" id="name" name="name" required><br>
-      <label>Sobrenome:</label>
+      <label>Sobrenome *:</label>
       <input type="text" id="surname" name="surname" required><br>
-      <label>CPF ou CNPJ:</label>
-      <input type="text" id="cpfCnpj" name="cpfCnpj" required maxlength="14"><br>
+      <label>CPF ou CNPJ *:</label>
+      <input type="text" id="cpfCnpj" name="cpfCnpj" required maxlength="18" ;onkeyup="VericaNumero(this)" onblur="validaCampo(this);" class="input-valida-campo"><br>
+      <div id="cpfCnpjInva"></div>
       <label>Email:</label>
-      <input type="email" id="email" name="email" required><br>
+      <input type="email" id="email" name="email" ><br>
       <label>Telefone:</label>
-      <input type="tel" id="telephone" name="telephone" placeholder="(XX) XXXX-XXXX" required><br>
+      <input type="tel" id="telephone" name="telephone" placeholder="(XX) XXXX-XXXX" ><br>
       <label>Cep:</label>
-      <input name="cep" type="text" id="cep" value="" size="10" maxlength="9" required onblur="pesquisacep(this.value);" /><br>
+      <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"  onblur="pesquisacep(this.value);" /><br>
+      <div id="cepInex"></div>
+      <div id="cepInvalido"></div>
       <label>Rua:</label>
       <input name="rua" type="text" id="rua" size="60" /><br>
       <label>Nº:</label>
@@ -34,9 +39,15 @@
       <input name="cidade" type="text" id="cidade" size="40" /><br>
       <label>Estado:</label>
       <input name="uf" type="text" id="uf" size="2" /><br>
-
       <button type="submit"  onclick="gerarJSON()" > Cadastrar</button>
+      <div id="obriga"><br>* Obrigátorio</div>
     </form>
     <div id="mensagem"></div>
+    <div id="iframeContainer"></div>
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="script/consultaCep.js"></script>
+    <script src="script/cnpjCfpValidador.js"></script>
+    <script src="script/gerarJson.js"></script>
+    <script src="script/iframeManipulator.js"></script>
   </body>
 </html>

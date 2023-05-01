@@ -4,16 +4,30 @@ body {
   }
   
   /* Estilos para o título */
+
+  img {
+    height: 50px; 
+    float: center;
+    margin-right: 10px;
+    margin-bottom: -10px;
+  }
+#CadastroRealizado {
+    font-family: 'Crete Round', serif;
+    color: #3e8e41;
+    text-align: center;
+
+  }
   h1 {
     text-align: center;
     margin-top: 10px;
     font-size: 36px;
     color: #fff;
+    line-height: 50px;
   }
   
   /* Estilos para o formulário de cadastro de clientes */
   form {
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto;
     padding: 20px;
     background-color: #333;
@@ -35,7 +49,7 @@ body {
     padding: 10px;
     border: none;
     border-radius: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     background-color: #444;
     color: #fff;
   }
@@ -44,7 +58,7 @@ body {
     font-family: 'Crete Round', serif;
     background-color: #4CAF50;
     color: #fff;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
@@ -53,3 +67,37 @@ body {
   button[type="submit"]:hover {
     background-color: #3e8e41;
   }
+  div {
+    font-family: 'Crete Round', serif;
+    color: #ec0000;
+
+  }
+  iframe{
+    margin: auto;
+  }
+  #iframeContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: AUTO;
+    border: none;
+    overflow: hidden;
+    
+  }
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-family: 'Crete Round', serif;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  

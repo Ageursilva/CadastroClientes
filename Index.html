@@ -3,18 +3,17 @@
   <head>
     <meta charset="UTF-8">
     <title>Cadastro</title>
-    
-    <link rel="stylesheet" href="css/style.css">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crete+Round&display=swap" rel="stylesheet">
     <link rel="favicon" href="img/favicon.ico" />
   </head>
   <body>
-    <h1><img src="/img/ca.png" alt="Icone de cadastro">Cadastro</h1>
-    <div id="CadastroRealizado"></div>
-    <form class="cadastro" method="get" action="#" onsubmit="gerarJSON(event)" id="Form">
-      <label>Nome *:</label>
+    <h1>Cadastro</h1>
+    <form class="cadastro" method="get" action=".">
+      <label>Nome:</label>
       <input type="text" id="name" name="name" required><br>
       <label>Sobrenome *:</label>
       <input type="text" id="surname" name="surname" required><br>
@@ -43,11 +42,5 @@
       <div id="obriga"><br>* Obrigátorio</div>
     </form>
     <div id="mensagem"></div>
-    <div id="iframeContainer"></div>
-    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="script/consultaCep.js"></script>
-    <script src="script/cnpjCfpValidador.js"></script>
-    <script src="script/gerarJson.js"></script>
-    <script src="script/iframeManipulator.js"></script>
   </body>
 </html>

@@ -1,4 +1,3 @@
-
 function gerarJSON(event) {
   event.preventDefault();
   const form = document.querySelector('.cadastro');

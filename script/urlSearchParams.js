@@ -16,8 +16,6 @@
 
 
 
-    //Preenche os dados da URL
-
     document.getElementById('name').value = name || '';
     document.getElementById('surname').value = surname || '';
     document.getElementById('cpfCnpj').value = cpfCnpj || '';

@@ -15,12 +15,22 @@ function gerarJSON(event) {
     uf: form.uf.value
   };
 
-  localStorage.setItem('cadastro', JSON.stringify(json));
-  console.log(localStorage);
-
-  form.reset();
-  document.getElementById('CadastroRealizado').innerHTML = "Cadastro realizado com sucesso!";
+  const jsonString = JSON.stringify(json);
+  
+ 
+  const downloadLink = document.createElement('a');
+  downloadLink.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(jsonString);
+  downloadLink.download = `${json.nome}${json.cpfCnpj}.txt`;
+  downloadLink.style.display = 'none';
+  document.body.appendChild(downloadLink);
+  
+  
+  downloadLink.click();
+  
+  document.getElementById('CadastroRealizado').innerHTML = 'Cadastro realizado com sucesso!';
   setTimeout(function () {
     document.getElementById('CadastroRealizado').innerHTML = '';
   }, 2000);
+  
+  form.reset();
 }
